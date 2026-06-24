@@ -62,7 +62,7 @@ export default function Signup() {
             name="name"
             placeholder="John Doe"
             value={name}
-            onChange={setName}
+            onChange={(value) => setName(String(value))}
             error={errors.name}
             required
           />
@@ -72,7 +72,7 @@ export default function Signup() {
             type="email"
             placeholder="you@example.com"
             value={email}
-            onChange={setEmail}
+            onChange={(value) => setEmail(String(value))}
             error={errors.email}
             required
           />
@@ -82,7 +82,7 @@ export default function Signup() {
             type="password"
             placeholder="••••••••"
             value={password}
-            onChange={setPassword}
+            onChange={(value) => setPassword(String(value))}
             error={errors.password}
             required
           />
@@ -92,7 +92,7 @@ export default function Signup() {
             type="password"
             placeholder="••••••••"
             value={confirmPassword}
-            onChange={setConfirmPassword}
+            onChange={(value) => setConfirmPassword(String(value))}
             error={errors.confirmPassword}
             required
           />

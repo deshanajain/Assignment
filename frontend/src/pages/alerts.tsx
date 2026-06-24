@@ -92,7 +92,7 @@ export default function Alerts() {
                 name="symbol"
                 placeholder="e.g., AAPL"
                 value={symbol}
-                onChange={setSymbol}
+                onChange={(value) => setSymbol(String(value))}
                 error={errors.symbol}
                 required
               />

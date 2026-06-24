@@ -98,7 +98,7 @@ export default function Watchlist() {
                 name="symbol"
                 placeholder="e.g., AAPL, GOOGL, RELIANCE"
                 value={symbol}
-                onChange={setSymbol}
+                onChange={(value) => setSymbol(String(value))}
                 error={errors.symbol}
                 required
               />
