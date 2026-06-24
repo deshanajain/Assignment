@@ -324,7 +324,7 @@ app.use(cors({
     "https://your-project.vercel.app"
   ],
   credentials: true
-}));S
+}));
 ```
 
 ### 4. Rate Limiting
