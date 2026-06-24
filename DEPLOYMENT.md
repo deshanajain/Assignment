@@ -317,12 +317,14 @@ app.use(helmet());
 
 ### 3. CORS Configuration
 
-```javascript
+ ```javascript
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(','),
-  credentials: true,
-  optionsSuccessStatus: 200
-}));
+  origin: [
+    "http://localhost:3000",
+    "https://your-project.vercel.app"
+  ],
+  credentials: true
+}));S
 ```
 
 ### 4. Rate Limiting
