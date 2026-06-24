@@ -1,5 +1,4 @@
 const API_URL = 'https://stockapp-backend.onrender.com/api';
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
 export async function request(path: string, options: RequestInit = {}) {
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
