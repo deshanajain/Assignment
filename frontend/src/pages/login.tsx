@@ -34,8 +34,11 @@ export default function Login() {
     setLoading(true);
     try {
       const res = await request('/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) });
+      if (!res?.token) {
+        throw new Error('Login failed. Please check your credentials and try again.');
+      }
       setAuth(res.token, res.user);
-      router.push('/dashboard');
+      await router.push('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Login failed');
     } finally {

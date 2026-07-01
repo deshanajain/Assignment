@@ -24,14 +24,16 @@ app.use('/api/holdings', holdingsRoutes);
 app.use('/api/stocks', stocksRoutes);
 
 const PORT = process.env.PORT || 4000;
+const MONGO_URI = process.env.MONGODB_URI || process.env.MONGODB_URL || process.env.DATABASE_URL || 'mongodb://localhost:27017/stockapp';
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(MONGO_URI, { serverSelectionTimeoutMS: 10000 })
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => console.log(`Backend listening on ${PORT}`));
   })
   .catch(err => {
-    console.error('MongoDB connection error', err);
+    console.error('MongoDB connection error', err.message);
+    process.exit(1);
   });
 
 // Cron job: every minute check alerts
